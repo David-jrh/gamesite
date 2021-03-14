@@ -8,22 +8,29 @@
     <link href="main.css" rel="stylesheet" type="text/css">
 </head>             
 <body>             
-                
-                
-                
-                <h1>Red or blue pill?</h1>
-                </div>
-                <p>Choose ure fate </p>
 
-                <center>
-                    <canvas width="500" height="500" id="canvas"></canvas>
-                </center>
+    <!-- <audio autoplay="autoplay" loop>
+        <source src="gamesounds/t.mp3" />
+    </audio> -->
 
-                <p id="winbox"><b></b></p>
-                <div id="result"></div>
-                <div id="resultblue"></div>
+    <center>
+        <h1>Gametitle</h1>
+        <canvas width="1000" height="600" id="canvas"></canvas>
+    </center>
+    <center>
+        <div id="timetext">You've got
+            <span id="time-showing"></span> secounds left!</div>
+    </center>
+
+    <div id="gameover">
+    </div>
+    <div id="winbox"></div>
 
 
+    <div id="text">
+        <div id="demo">Life:</div>
+        <div id="boxscore">score:</div>   
+    </div>
 
 
     <script src="main.js"></script>
