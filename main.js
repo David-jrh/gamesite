@@ -197,7 +197,7 @@ function collect() {
 
 }
 //audio collect
-function attack() {
+function trap() {
 
     let gameSound = new Audio('gamesounds/pill.mp3');
     gameSound.play();
@@ -244,7 +244,7 @@ window.addEventListener('keydown', (e) => {
                     document.getElementById("boxscore").innerHTML = "Pokeballs: " + score
                 } else if (targetTile === trap1) {
                     life--;
-                    attack();
+                    trap();
                     document.getElementById("demo").innerHTML = "Life: " + life;
                     if (life < 1) {
                         document.querySelector("#timetext").style.display = 'none';
@@ -284,7 +284,7 @@ window.addEventListener('keydown', (e) => {
                     document.getElementById("boxscore").innerHTML = "Pokeballs: " + score;
                 } else if (targetTile === trap1) {
                     life--;
-                    attack();
+                    trap();
                     document.getElementById("demo").innerHTML = "Life: " + life;
 
                     if (life < 1) {
@@ -336,7 +336,7 @@ window.addEventListener('keydown', (e) => {
                 } else if (targetTile === trap1) {
                     life--;
                     document.getElementById("demo").innerHTML = "Life: " + life;
-                    attack();
+                    trap();
                     if (life < 1) {
                         document.querySelector("#timetext").style.display = 'none';
                         document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
@@ -378,7 +378,7 @@ window.addEventListener('keydown', (e) => {
                 } else if (targetTile === trap1) {
                     life--;
                     document.getElementById("demo").innerHTML = "Life: " + life;
-                    attack();
+                    trap();
                     if (life < 1) {
                         document.querySelector("#timetext").style.display = 'none';
                         document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
