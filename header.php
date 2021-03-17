@@ -1,7 +1,7 @@
 <nav id="scroll" class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle"">
+            <button type="button" class="navbar-toggle">
                     <span class=" sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

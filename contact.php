@@ -1,106 +1,61 @@
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>Contact Section</h1>
-                </div>
-                <?php
-                require_once "config.php"; // Using database connection file here
+<!DOCTYPE html>
+<html lang="en">
 
-                if(isset($_POST['submit1']))
-                {		
-                    $name = $_POST['name'];
-                    $phone = $_POST['phone'];
-                    $mail = $_POST['mail'];
-                    $content = $_POST['content'];
+<head>
+    <title>Welcome</title>
+    <?php include 'head.php';?>
+</head>
 
-                    $insert = mysqli_query($link,"INSERT INTO `contact`(`name`, `phone`, `mail`, `content` ) VALUES ('$name','$phone','$mail','$content')");
+<body>
+    <!-- contact form-->
+    <div class="cointainer">
+        <div class="row">
+            <div class="col-sm-6 col-m-6 col-l-6 ">
+                <form action="message.php" @submit="checkForm" method="post" id="app3" name="index" role="form"
+                    novalidate>
+                    <p v-if="errors.length" style="color: red;">
+                        <b>Please correct the following error(s):</b>
+                    <ul>
+                        <li v-for="error in errors" style="color: red;">{{ error }}</li>
+                    </ul>
+                    </p>
+                    <div class="form-group">
+                        <label class="form-label" id="name" for="name"></label>
+                        <input type="text" class="form-control" id="name" name="name" v-model="name"
+                            placeholder="Full name" tabindex="1" required>
+                    </div>
 
-                    if(!$insert)
-                    {
-                        echo mysqli_error();
-                    }
-                    else
-                    {
-                        echo "<h4>Thanks for contacting us, we will get back to you shortly.</h4>";
-                    }
-                }
+                    <div class="form-group">
+                        <label class="form-label" id="lemail" for="mail"></label>
+                        <input type="email" class="form-control" id="mail" name="mail" placeholder="Email"
+                            v-model="mail" tabindex="2" required>
+                    </div>
 
-                mysqli_close($link); // Close connection
-                ?>
 
-                <h3>Fill the Form</h3>
+                    <div class="form-group">
+                        <label class="form-label" id="phone" for="phone"></label>
+                        <input
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            type="number" maxlength="8" class="form-control" id="phone" name="phone" v-model="phone"
+                            placeholder="phone" tabindex="3" required>
+                    </div>
 
-                <div class="container">
+                    <div class="form-group">
+                        <label class="form-label" id="content" for="content"></label>
+                        <input type="textbox" class="form-control" id="content" name="content" v-model="content"
+                            placeholder="Content" tabindex="4" required>
+                    </div>
 
-                    <form class="well form-horizontal" action=" " method="post" id="contact_form">
-                        <fieldset>
+                    <button name="knap" value="submit" id="submit" type="submit"
+                        class="btn btn-default btn-gap">SEND</button>
 
-                            <legend>Contact Us Today!</legend>
+                </form>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Name</label>
-                                <div class="col-md-4 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input name="name" placeholder="Name" class="form-control" type="text" Required>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">E-Mail</label>
-                                <div class="col-md-4 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-envelope"></i></span>
-                                        <input name="mail" placeholder="E-Mail Address" class="form-control"
-                                        type="email" Required>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Phone #</label>
-                                <div class="col-md-4 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-earphone"></i></span>
-                                        <input name="phone" placeholder="(+45) 26 61 16 41" class="form-control"
-                                        type="tel" Required>
-                                    </div>
-                                </div>
-                            </div>
+                <?php include 'footer.php';?>
 
-                            <!-- Text area -->
+                <script src="scripts/vuemessage.js "></script>
+</body>
 
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">Project Description</label>
-                                <div class="col-md-4 inputGroupContainer">
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i
-                                                class="glyphicon glyphicon-pencil"></i></span>
-                                        <textarea class="form-control" name="content"
-                                            placeholder="Project Description" Required></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Button -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label"></label>
-                                <div class="col-md-4">
-                                    <button type="submit" name="submit1" value="Submit" class="btn btn-primary">Send
-                                        <span class="glyphicon glyphicon-send"></span></button>
-                                </div>
-                            </div>
-
-                        </fieldset>
-                    </form>
-                </div>
-            </div><!-- /.container -->
-
-        </div>
-        </div>
-    </section>
+</html>
