@@ -12,8 +12,6 @@
     <?php include 'header.php';?>
 
    
-
-
     <h2>Hi, <?php echo htmlspecialchars($_SESSION["username"]); ?>. Welcome to the site.</h2>
 
 

@@ -15,8 +15,6 @@
 
 <link href="style/main.css" rel="stylesheet" type="text/css">
 
-
-
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <!-- fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Raleway:wght@500&display=swap"

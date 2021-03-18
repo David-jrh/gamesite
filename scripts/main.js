@@ -1,3 +1,17 @@
+// stopper piletaster scroll
+
+window.addEventListener(
+    "keydown",
+    function (e) {
+      // space and arrow keys
+      if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+      }
+    },
+    false
+  );
+
+
 let canvas = document.querySelector("#canvas");
 //Is a DOMString containing the context identifier defining the drawing context associated to the canvas.
 let ctx = canvas.getContext("2d");
@@ -25,8 +39,12 @@ let trapImg = new Image();
 trapImg.src = "img/front.jpg";
 
 //Next level
-let lvl2Img = new Image();
-lvl2Img.src = "img/wall.png";
+let lvlImg = new Image();
+lvlImg.src = "img/wall.png";
+
+//fnish
+let finishImg = new Image();
+finishImg.src = 'img/front.png';
 
 /*-----------MAP------------*/
 /*y=20 , x=10 
@@ -35,16 +53,16 @@ let levels = [
   [
     //1
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 3, 1, 1, 1, 1, 4, 4, 4, 0, 1, 0, 1, 1, 3, 1, 1, 0, 1, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 4, 0, 1, 0, 1, 1, 3, 1, 1, 0, 1, 0],
     [0, 1, 0, 0, 0, 0, 3, 0, 4, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0],
     [0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
     [0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 5],
     [0, 2, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0],
     [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0],
-    [0, 1, 0, 1, 0, 1, 3, 3, 3, 3, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 3, 1, 1, 3, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
     [0, 1, 0, 1, 1, 3, 1, 1, 1, 0, 0, 0, 1, 0, 0, 4, 1, 0, 1, 0],
-    [0, 3, 0, 1, 4, 4, 4, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0],
-    [0, 3, 3, 3, 1, 1, 1, 1, 1, 1, 3, 0, 1, 1, 1, 1, 1, 0, 1, 0],
+    [0, 3, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0],
+    [0, 1, 3, 3, 1, 1, 1, 1, 1, 1, 3, 0, 1, 1, 1, 1, 1, 0, 1, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   ],
   [
@@ -56,7 +74,7 @@ let levels = [
     [0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0],
     [0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0],
     [0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0],
-    [0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 5],
+    [0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 6],
     [0, 3, 0, 1, 0, 0, 0, 1, 0, 0, 4, 0, 1, 0, 0, 0, 1, 0, 1, 0],
     [0, 1, 1, 0, 1, 0, 3, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -82,7 +100,7 @@ time = setInterval(function () {
 
     document.getElementById("gameover").style.backgroundColor = "black";
 
-    document.getElementById("gameover").style.border = "3px solid green";
+    document.getElementById("gameover").style.border = "3px solid red";
   }
 }, 1000);
 
@@ -106,22 +124,20 @@ let playerPosition = {
   y: 0,
 };
 
-//Roads
+
 let road = 1;
 
-//collect
 let pokeballs = 3;
 
-//plaer
 let player = 2;
 
 let trap = 4;
 
-//wall
 let wall = 0;
 
-//next level
-let levl2 = 5;
+let lvl = 5;
+
+let finish = 6
 
 /*-----------SCORE AND LIFE------------*/
 let score = 0;
@@ -138,13 +154,7 @@ function drawMaze() {
       } else if (maze[y][x] === player) {
         playerPosition.x = x;
         playerPosition.y = y;
-        ctx.drawImage(
-          playerImg,
-          x * tileSize,
-          y * tileSize,
-          tileSize,
-          tileSize
-        );
+        ctx.drawImage(playerImg, x * tileSize, y * tileSize, tileSize, tileSize);
       } else if (maze[y][x] === road) {
         ctx.drawImage(roadImg, x * tileSize, y * tileSize, tileSize, tileSize);
       } else if (maze[y][x] === trap) {
@@ -158,17 +168,17 @@ function drawMaze() {
       //collect
       else if (maze[y][x] === pokeballs) {
         ctx.drawImage(
-          pokeballImg,
-          x * tileSize,
-          y * tileSize,
-          tileSize,
-          tileSize
-        );
+          pokeballImg, x * tileSize, y * tileSize, tileSize, tileSize);
       }
 
       //levels
-      else if (maze[y][x] === levl2) {
-        ctx.drawImage(lvl2Img, x * tileSize, y * tileSize, tileSize, tileSize);
+      else if (maze[y][x] === lvl) {
+        ctx.drawImage(lvlImg, x * tileSize, y * tileSize, tileSize, tileSize);
+      }
+      //collect
+      else if (maze[y][x] === finish) {
+        ctx.drawImage(
+          finishImg, x * tileSize, y * tileSize, tileSize, tileSize);
       }
     }
   }
@@ -195,14 +205,20 @@ function levelUp() {
   gameSound.play();
 }
 
+function Goal() {
+    let gameSound = new Audio("gamesounds/pill.mp3");
+    gameSound.play();
+  }
+
 /*-----------WALKABLE TILES------------*/
 //Walkable tiles function
 function isWalkable(targetTile) {
   if (
     targetTile === road ||
     targetTile === pokeballs ||
-    targetTile === levl2 ||
-    targetTile === trap
+    targetTile === lvl ||
+    targetTile === trap ||
+    targetTile === finish
   ) {
     return true;
   } else {
@@ -236,20 +252,19 @@ window.addEventListener("keydown", (e) => {
               "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pokeballs: " + score;
             document.getElementById("gameover").style.backgroundColor = "black";
             document.getElementById("gameover").style.border =
-              "3px solid green";
+              "3px solid red";
           }
-        } else if (targetTile === pokeballs && score >= 10) {
-          document.querySelector("#timetext").style.display = "none";
-          document.getElementById("winbox").innerHTML =
-            "You won! Your score is " + score;
-        } else if (targetTile === pokeballs && score < 10) {
-          document.querySelector("#timetext").style.display = "none";
+        } else if (targetTile === finish && score >= 10) {
+            document.querySelector("#timetext").style.display = 'none';
+            document.getElementById("winbox").innerHTML = "You won! Your score is " + score;
+        } else if (targetTile === finish && score < 10) {
+            document.querySelector("#timetext").style.display = 'none';
 
-          document.getElementById("gameover").innerHTML =
-            "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pokeballs: " + score;
-          document.getElementById("gameover").style.backgroundColor = "black";
-          document.getElementById("gameover").style.border = "3px solid green";
-        } else if (targetTile === levl2) {
+            document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
+                "Pokeball(s): " + score;
+            document.getElementById("gameover").style.backgroundColor = 'black';
+            document.getElementById("gameover").style.border = '3px solid red';
+        } else if (targetTile === lvl) {
           levelUp();
           nextLevel();
         }
@@ -275,48 +290,29 @@ window.addEventListener("keydown", (e) => {
           if (life < 1) {
             document.querySelector("#timetext").style.display = "none";
             document.getElementById("gameover").innerHTML =
-              "</br>" +
-              "</br>" +
-              "GAME OVER" +
-              "</br>" +
-              "Pokeballs: " +
-              score +
-              "</br>";
+            "</br>" + "</br>" + "YOU WON" + "</br>" +"Pokeballs: " + score;
             document.getElementById("gameover").style.backgroundColor = "black";
             document.getElementById("gameover").style.border =
-              "3px solid green";
+              "3px solid red";
           }
-        } else if ((targetTile === pokeballs) & (score >= 10)) {
-          document.querySelector("#timetext").style.display = "none";
-          document.getElementById("gameover").innerHTML =
-            "</br>" +
-            "</br>" +
-            "YOU WON" +
-            "</br>" +
-            "Pokeballs: " +
-            score +
-            "</br>" +
-            "Survivor(s) score: " +
-            saved +
-            "</br>";
-          document.getElementById("gameover").style.backgroundColor = "black";
-          document.getElementById("gameover").style.border = "3px solid green";
-        } else if ((targetTile === pokeballs) & (score < 10)) {
-          document.querySelector("#timetext").style.display = "none";
-          document.getElementById("gameover").innerHTML =
-            "</br>" +
-            "</br>" +
-            "GAME OVER" +
-            "</br>" +
-            "Pokeballs: " +
-            score +
-            "</br>" +
-            "Survivor(s) score: " +
-            saved +
-            "</br>";
-          document.getElementById("gameover").style.backgroundColor = "black";
-          document.getElementById("gameover").style.border = "3px solid green";
-        } else if (targetTile === levl2) {
+        } else if (targetTile === finish && score >= 10) {
+
+            document.querySelector("#timetext").style.display = 'none';
+            document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "YOU WON" +
+                '</br>' +
+                "Pokeballs : " + score;
+            document.getElementById("gameover").style.backgroundColor = 'black';
+            document.getElementById("gameover").style.border = '3px solid red';
+
+        } else if (targetTile === finish && score < 10) {
+
+            document.querySelector("#timetext").style.display = 'none';
+            document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" +
+                '</br>' +
+                "Pokeballs : " + score
+            document.getElementById("gameover").style.backgroundColor = 'black';
+            document.getElementById("gameover").style.border = '3px solid red';
+        } else if (targetTile === lvl) {
           levelUp();
           nextLevel();
         }
@@ -343,29 +339,21 @@ window.addEventListener("keydown", (e) => {
               "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pokeballs: " + score;
             document.getElementById("gameover").style.backgroundColor = "black";
             document.getElementById("gameover").style.border =
-              "3px solid green";
+              "3px solid red";
           }
-        } else if ((targetTile === pokeballs) & (score >= 10)) {
-          document.querySelector("#timetext").style.display = "none";
+        } else if (targetTile === finish && score >= 10) {
+            document.querySelector("#timetext").style.display = 'none';
 
-          document.getElementById("winbox").innerHTML =
-            "You won! Your score is " + score;
-        } else if ((targetTile === pokeballs) & (score < 10)) {
-          document.querySelector("#timetext").style.display = "none";
-          document.getElementById("gameover").innerHTML =
-            "</br>" +
-            "</br>" +
-            "GAME OVER" +
-            "</br>" +
-            "Pokeballs: " +
-            score +
-            "</br>" +
-            "Survivor(s) score: " +
-            saved +
-            "</br>";
-          document.getElementById("gameover").style.backgroundColor = "black";
-          document.getElementById("gameover").style.border = "3px solid green";
-        } else if (targetTile === levl2) {
+            document.getElementById("winbox").innerHTML = "You won! Your score is " + score;
+
+        } else if (targetTile === finish && score < 10) {
+
+            document.querySelector("#timetext").style.display = 'none';
+            document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
+                "Pokeballs : " + score;
+            document.getElementById("gameover").style.backgroundColor = 'black';
+            document.getElementById("gameover").style.border = '3px solid red';
+        } else if (targetTile === lvl) {
           levelUp();
           nextLevel();
         }
@@ -392,23 +380,21 @@ window.addEventListener("keydown", (e) => {
               "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pokeballs: " + score;
             document.getElementById("gameover").style.backgroundColor = "black";
             document.getElementById("gameover").style.border =
-              "3px solid green";
+              "3px solid red";
           }
-        } else if ((targetTile === pokeballs) & (score >= 10)) {
-          document.getElementById("winbox").innerHTML =
-            "You won! Your score is " + score;
-        } else if ((targetTile === pokeballs) & (score < 10)) {
-          document.getElementById("gameover").innerHTML =
-            "You lost! Your scored " + score;
+        } else if (targetTile === finish && score >= 10) {
+            document.getElementById("winbox").innerHTML = "You won! Your score is " + score;
+        } else if (targetTile === finish && score < 10) {
+            document.getElementById("gameover").innerHTML = "You lost! Your scored " + score +
+                "Survivor(s) score: " + saved + '</br>';
         } else if (targetTile === levl2) {
-          levelUp();
-          nextLevel();
+            levelUp();
+            nextLevel();
         }
       }
       break;
   }
-  console.log("life" + life);
-  console.log(score);
+
 });
 
 window.addEventListener("load", drawMaze);
