@@ -96,7 +96,7 @@ time = setInterval(function () {
     document.querySelector("#timetext").style.display = "none";
 
     document.getElementById("gameover").innerHTML =
-      "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pokeballs: " + score;
+      "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pills collected " + score;
 
     document.getElementById("gameover").style.backgroundColor = "black";
 
@@ -141,7 +141,7 @@ let finish = 6
 
 /*-----------SCORE AND LIFE------------*/
 let score = 0;
-document.querySelector("#boxscore").innerHTML = "Pokeballs: " + score;
+document.querySelector("#boxscore").innerHTML = "Pills collected " + score;
 let life = 3;
 document.querySelector("#demo").innerHTML = "Life: " + life;
 
@@ -241,7 +241,7 @@ window.addEventListener("keydown", (e) => {
         if (targetTile === pokeballs) {
           score++;
           collect();
-          document.getElementById("boxscore").innerHTML = "Pokeballs: " + score;
+          document.getElementById("boxscore").innerHTML = "Pills collected " + score;
         } else if (targetTile === trap) {
           life--;
           trapsound();
@@ -249,7 +249,7 @@ window.addEventListener("keydown", (e) => {
           if (life < 1) {
             document.querySelector("#timetext").style.display = "none";
             document.getElementById("gameover").innerHTML =
-              "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pokeballs: " + score;
+              "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pills collected " + score;
             document.getElementById("gameover").style.backgroundColor = "black";
             document.getElementById("gameover").style.border =
               "3px solid red";
@@ -263,7 +263,7 @@ window.addEventListener("keydown", (e) => {
             document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
                 "Pokeball(s): " + score;
             document.getElementById("gameover").style.backgroundColor = 'black';
-            document.getElementById("gameover").style.border = '3px solid red';
+            document.getElementById("gameover").style.border = '3px solid blue';
         } else if (targetTile === lvl) {
           levelUp();
           nextLevel();
@@ -281,7 +281,7 @@ window.addEventListener("keydown", (e) => {
         if (targetTile === pokeballs) {
           score++;
           collect();
-          document.getElementById("boxscore").innerHTML = "Pokeballs: " + score;
+          document.getElementById("boxscore").innerHTML = "Pills collected " + score;
         } else if (targetTile === trap) {
           life--;
           trapsound();
@@ -290,10 +290,10 @@ window.addEventListener("keydown", (e) => {
           if (life < 1) {
             document.querySelector("#timetext").style.display = "none";
             document.getElementById("gameover").innerHTML =
-            "</br>" + "</br>" + "YOU WON" + "</br>" +"Pokeballs: " + score;
+            "</br>" + "</br>" + "YOU WON" + "</br>" +"Pills collected " + score;
             document.getElementById("gameover").style.backgroundColor = "black";
             document.getElementById("gameover").style.border =
-              "3px solid red";
+              "3px solid blue";
           }
         } else if (targetTile === finish && score >= 10) {
 
@@ -302,7 +302,7 @@ window.addEventListener("keydown", (e) => {
                 '</br>' +
                 "Pokeballs : " + score;
             document.getElementById("gameover").style.backgroundColor = 'black';
-            document.getElementById("gameover").style.border = '3px solid red';
+            document.getElementById("gameover").style.border = '3px solid blue';
 
         } else if (targetTile === finish && score < 10) {
 
@@ -311,7 +311,7 @@ window.addEventListener("keydown", (e) => {
                 '</br>' +
                 "Pokeballs : " + score
             document.getElementById("gameover").style.backgroundColor = 'black';
-            document.getElementById("gameover").style.border = '3px solid red';
+            document.getElementById("gameover").style.border = '3px solid blue';
         } else if (targetTile === lvl) {
           levelUp();
           nextLevel();
@@ -328,7 +328,7 @@ window.addEventListener("keydown", (e) => {
         if (targetTile === pokeballs) {
           score++;
           collect();
-          document.getElementById("boxscore").innerHTML = "Pokeballs: " + score;
+          document.getElementById("boxscore").innerHTML = "Pills collected " + score;
         } else if (targetTile === trap) {
           life--;
           document.getElementById("demo").innerHTML = "Life: " + life;
@@ -336,10 +336,10 @@ window.addEventListener("keydown", (e) => {
           if (life < 1) {
             document.querySelector("#timetext").style.display = "none";
             document.getElementById("gameover").innerHTML =
-              "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pokeballs: " + score;
+              "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pills collected " + score;
             document.getElementById("gameover").style.backgroundColor = "black";
             document.getElementById("gameover").style.border =
-              "3px solid red";
+              "3px solid blue";
           }
         } else if (targetTile === finish && score >= 10) {
             document.querySelector("#timetext").style.display = 'none';
@@ -352,7 +352,7 @@ window.addEventListener("keydown", (e) => {
             document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
                 "Pokeballs : " + score;
             document.getElementById("gameover").style.backgroundColor = 'black';
-            document.getElementById("gameover").style.border = '3px solid red';
+            document.getElementById("gameover").style.border = '3px solid blue';
         } else if (targetTile === lvl) {
           levelUp();
           nextLevel();
@@ -369,7 +369,7 @@ window.addEventListener("keydown", (e) => {
         if (targetTile === pokeballs) {
           score++;
           collect();
-          document.getElementById("boxscore").innerHTML = "Pokeballs: " + score;
+          document.getElementById("boxscore").innerHTML = "Pills collected " + score;
         } else if (targetTile === trap) {
           life--;
           document.getElementById("demo").innerHTML = "Life: " + life;
@@ -377,7 +377,7 @@ window.addEventListener("keydown", (e) => {
           if (life < 1) {
             document.querySelector("#timetext").style.display = "none";
             document.getElementById("gameover").innerHTML =
-              "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pokeballs: " + score;
+              "</br>" + "</br>" + "GAME OVER" + "</br>" + "Pills collected " + score;
             document.getElementById("gameover").style.backgroundColor = "black";
             document.getElementById("gameover").style.border =
               "3px solid red";
@@ -386,7 +386,7 @@ window.addEventListener("keydown", (e) => {
             document.getElementById("winbox").innerHTML = "You won! Your score is " + score;
         } else if (targetTile === finish && score < 10) {
             document.getElementById("gameover").innerHTML = "You lost! Your scored " + score +
-                "Survivor(s) score: " + saved + '</br>';
+                 '</br>';
         } else if (targetTile === levl2) {
             levelUp();
             nextLevel();

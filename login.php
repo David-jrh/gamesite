@@ -16,20 +16,16 @@
         else{
             //fetcher rows fra data
             while($row = $result->fetch_assoc()){
-                $img = $row['img'];
                 $email = $row['email'];
-                $bio = $row['bio'];
              }
             //PHP session start
             session_start();
-            $_SESSION['logged_in'] = true;
+            $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
-            $_SESSION['img'] = $img;
-            $_SESSION['bio'] = $bio;
             
             //redirect and stop present code
-            header('Location: game.php');
+            header('Location: index.php');
             exit();
         }
     }
@@ -45,8 +41,11 @@
 
 <body>
 
-//login
-<form id="app2" @submit="checkForm" action="login.php" method="post" class="register-form login-form" novalidate="true">
+<div class="signup-wrap">
+
+<h2>login</h2>
+
+<form id="app2" @submit="checkForm" action="login.php" method="post" class="signup-form login-form" novalidate="true">
 
     <p v-if="errors.length" style="color: red;">
         <b>Please correct the following error(s):</b>
@@ -65,14 +64,21 @@
         <input type="text" name="password" id="password" v-model="password" placeholder="Password">
     </div>
 
-
-    <button name="submit" value="submit" id="submit" type="submit" class="btn btn-default btn-gap">SEND</button>
-
-
-</form>
-<div class="buttons">
+    <div class="buttons butsign">
         <a class="mybutton" href="signup.php">Sign up</a>
     </div>
+    
+    <button name="submit" value="submit" id="submit" type="submit" class="btn btn-default btn-gap">SEND</button>
+
+   
+</form>
+
+
+
+
+    <!--end signup-wrap-->
+</div>
+
 
 <script src="scripts/vuelogin.js"></script>
 </body>

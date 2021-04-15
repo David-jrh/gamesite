@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
 
 <?php include 'reqlogin.php';?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <title>Welcome</title>
     <?php include 'head.php';?>
+    <link href="style/main.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -20,7 +22,7 @@
     </div>
 
     <center>
-        <h1>Gametitle</h1>
+        <h1>Neo</h1>
         <canvas width="1000" height="600" id="canvas"></canvas>
     </center>
     <center>

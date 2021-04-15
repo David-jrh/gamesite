@@ -12,10 +12,14 @@
 <!-- font awesome cdn -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<!-- popper cdn -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
-<link href="style/main.css" rel="stylesheet" type="text/css">
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <!-- fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Raleway:wght@500&display=swap"
     rel="stylesheet">
+
+<link href="style/style.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="images/neo.jpg">

@@ -8,12 +8,14 @@
         $password = sha1($_POST['password']);
         //Check if username exist else insert
         $check = $conn->query("SELECT username from users WHERE username = '$username'");
-
-        if($check->num_rows == 1) echo "<script>alert('Username already exist');</script>";
+        if($check->num_rows == 1) echo "<script>alert('Username already exist, try a new one.');</script>";
         else{
             $insert = "INSERT INTO users (username, email, `password`) VALUE ('$username', '$email', '$password')";
             if($conn->query($insert)){
-                echo "<script>alert('Welcome: ".$username." you are now registered!');</script>";
+                echo "<script>alert('Welcome: ".$username." you are now signed up!');</script>";
+                echo '
+                <a href="login.php" id="loginbut" class="mybutton">Log in now</a>
+               ';
             }
             else{
                 echo "<script>alert('Something went wrong');</script>";
@@ -29,51 +31,47 @@
 <html lang="en">
 
 <head>
-    <title>Welcome</title>
+    <title>Sign up</title>
     <?php include 'head.php';?>
 </head>
 
 <body>
 
-    <div>
-        <h2>signup a profile</h2>
+<div class="signup-wrap">
+    <h2>Signup a user</h2>
 
-        <form id="app" @submit="checkForm" action="signup.php" method="post" class="register-form" novalidate="true">
+<form id="app" @submit="checkForm" action="signup.php" method="post" class="signup-form" novalidate="true">
+  
+  <p v-if="errors.length" style="color: red;">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors" style="color: red;">{{ error }}</li>
+    </ul>
+  </p>
+  
+                        <div class="form-group">
+                            <label class="form-label" id="name" for="name"></label>
+                            <input type="text" name="username" id="username" v-model="username" placeholder="Username">
+                        </div>
 
-            <p v-if="errors.length" style="color: red;">
-                <b>Please correct the following error(s):</b>
-            <ul>
-                <li v-for="error in errors" style="color: red;">{{ error }}</li>
-            </ul>
-            </p>
+                        <div class="form-group">
+                            <label class="form-label" id="lemail" for="email"></label>
+                            <input type="email" name="email" id="email" v-model="email" placeholder="Email">
+                        </div>
 
-            <div class="form-group">
-                <label class="form-label" id="name" for="name"></label>
-                <input type="text" name="username" id="username" v-model="username" placeholder="Username">
-            </div>
+                        <div class="form-group">
+                            <label class="form-label" id="lpassword" for="password"></label>
+                            <input type="text" name="password" id="password" v-model="password" placeholder="Password">
+                        </div>
 
+  
+  <button name="submit" value="submit" id="submit" type="submit" class="btn btn-default btn-gap">SEND</button>
+  
 
-            <div class="form-group">
-                <label class="form-label" id="lemail" for="email"></label>
-                <input type="email" name="email" id="email" v-model="email" placeholder="Email">
-            </div>
-
-            <div class="form-group">
-                <label class="form-label" id="lpassword" for="password"></label>
-                <input type="text" name="password" id="password" v-model="password" placeholder="Password">
-            </div>
-
-
-
-
-            <button name="submit" value="submit" id="submit" type="submit" class="btn btn-default btn-gap">SEND</button>
-
-
-        </form>
-
-    </div>
-
+</form>
+                    
+<!--end signup-wrap-->
+</div>
 
 </body>
-
 </html>

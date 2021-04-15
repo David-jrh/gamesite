@@ -1,3 +1,5 @@
+<?php include 'reqlogin.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +9,11 @@
 </head>
 
 <body>
+<!--start wrapper-->
+<?php include 'header.php';?>
+<div class="wrapper">
+
+
     <!-- contact form-->
     <div class="cointainer">
         <div class="row">
@@ -51,7 +58,8 @@
 
                 </form>
 
-
+</div>
+ <!-- end wrapper -->
 
                 <?php include 'footer.php';?>
 

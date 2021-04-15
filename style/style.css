@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;800;900&display=swap");
+.wrapper {
+  margin: 0 auto;
+  max-width: 1280px; }
+
+body {
+  background-color: #f1f1f1;
+  font-family: "Raleway", sans-serif; }
+
+.mybutton {
+  background-color: #892d99;
+  border: 1px solid black;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  border-radius: 0px;
+  padding: 10px; }
+  .mybutton:hover {
+    background-color: #421a3f;
+    border: 1px solid black;
+    color: #d411a4;
+    text-decoration: none; }
+
+/*--------profile--------*/
+.profile {
+  background-color: black;
+  padding: 10px; }
+  .profile .row {
+    background-color: rgba(255, 255, 255, 0.288);
+    color: #25a32b; }
+  .profile .profile1 {
+    text-align: center; }
+
+/*--------signup and login form--------*/
+.signup-wrap {
+  margin: 0 auto;
+  max-width: 700px; }
+
+.signup-wrap h2 {
+  text-align: center;
+  margin: 2em 0; }
+
+#signup-form {
+  background-color: #672862;
+  padding: 10px;
+  margin: 0 auto;
+  color: #25a32b;
+  max-width: 400px;
+  margin-bottom: 4em; }
+  #signup-form input[type=file] {
+    border: none;
+    background-color: rgba(255, 255, 255, 0); }
+  #signup-form button {
+    width: 100%; }
+
+.butsign {
+  float: right;
+  padding: 1.5em 0; }
+
+#loginbut {
+  text-align: center;
+  margin: 100px 100px; }
+
+/*---------nav-----------*/
+.navbar {
+  font-family: "Raleway", sans-serif;
+  background-color: white; }
+  .navbar .nav-link {
+    color: #d411a4; }
+    .navbar .nav-link:hover {
+      color: #421a3f !important;
+      cursor: pointer; }
+
+/* --------header---------*/
+.header {
+  position: relative;
+  width: 100vw;
+  height: 500px; }
+  .header .left {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    padding: 1rem; }
+
+#header3 {
+  font-family: "Raleway", sans-serif; }
+  #header3 h2.title {
+    font-weight: 800;
+    font-size: 2.5em; }
+  #header3 .caption {
+    z-index: 5;
+    text-align: center;
+    color: #fff; }
+    #header3 .caption .title,
+    #header3 .caption .text {
+      margin-bottom: 1.5rem; }
+    #header3 .caption .action {
+      margin-bottom: 1rem;
+      padding-left: 3rem;
+      padding-right: 3rem; }
+
+.howto-mobile {
+  display: block; }
+  .howto-mobile img {
+    width: 100%; }
+
+.whitebg img {
+  width: 100%; }
+
+.howto-desktop {
+  display: none; }
+
+.gameplay-text {
+  margin-left: 20px; }
+  .gameplay-text h2 {
+    padding-top: 0em; }
+
+.howto-mobile {
+  background-color: #421a3f;
+  color: #25a32b; }
+
+.wrapit {
+  margin: 0 auto;
+  max-width: 700px;
+  padding-left: 15%; }
+
+form input[type=text],
+form [type=email],
+form [type=number],
+form [type=textbox],
+form select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 0px;
+  display: inline-block;
+  border: none;
+  border-bottom: 1px solid #421a3f;
+  box-sizing: border-box;
+  margin: 0px; }
+form button[type=submit] {
+  width: 40%;
+  background-color: #421a3f;
+  color: #25a32b;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 1px solid #421a3f;
+  border-radius: 0px;
+  cursor: pointer; }
+form button[type=submit]:hover {
+  background-color: #25a32b;
+  color: #421a3f; }
+
+.comments {
+  background-color: #421a3f;
+  border-radius: 15px 15px 15px;
+  border: solid 1px rgba(44, 44, 44, 0.431);
+  margin: 0.8% 0.5%;
+  float: left;
+  color: white; }
+
+footer {
+  text-align: center;
+  background-color: #3b1238;
+  padding: 30px; }
+  footer .fa {
+    padding: 20px;
+    font-size: 1.2em;
+    border-radius: 3px;
+    width: 70px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px; }
+    footer .fa:hover {
+      opacity: 0.7;
+      text-decoration: none;
+      cursor: pointer;
+      color: #892d99; }
+  footer p {
+    color: white;
+    font-family: "Raleway", sans-serif; }
+  footer .fa-facebook {
+    color: white; }
+  footer .fa-twitter {
+    color: white; }
+  footer .fa-google {
+    color: white; }
+  footer .fa-linkedin {
+    color: white; }
+  footer .fa-youtube {
+    color: white; }
+  footer .fa-instagram {
+    color: white; }
+
+@media (min-width: 560px) {
+  .header .center {
+    width: 50%; }
+
+  .header {
+    /* .right {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        width: 40%;
+        height: 60%;
+        transform: translate(0, 0);
+        padding: 1rem;
+    }*/ }
+    .header .left {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      width: 40%;
+      height: 60%;
+      transform: translate(0, 0);
+      padding: 1rem; }
+
+  #header3 .right {
+    display: block; }
+  #header3 .caption {
+    text-align: left; }
+
+  .navbar .navbar-brand {
+    padding-left: 10%; }
+
+  .navbar-expand-md .navbar-collapse {
+    padding-right: 10%; }
+
+  .howto-mobile {
+    display: none; }
+
+  .howto-desktop {
+    display: block;
+    background-color: #421a3f;
+    color: #25a32b;
+    padding: 3em; }
+    .howto-desktop img {
+      width: 400px; }
+
+  .whitebg {
+    margin: 3em; }
+    .whitebg img {
+      width: 400px; }
+
+  .wrapit {
+    margin: 0 auto;
+    max-width: 1300px;
+    padding-left: 15%; }
+
+  .gameplay-text {
+    margin-left: 0px; }
+    .gameplay-text h2 {
+      padding-top: 3em; }
+
+  .contact .row {
+    margin: 4em 0em 4em 0em; }
+
+  .contact-info {
+    display: block;
+    background-color: #421a3f;
+    color: #25a32b;
+    padding: 7em; }
+
+  .signup-wrap h2 {
+    text-align: center;
+    margin-top: 3em; } }
+
+/*# sourceMappingURL=style.css.map */
