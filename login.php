@@ -45,34 +45,35 @@
 
 <h2>login</h2>
 
-<form id="app2" @submit="checkForm" action="login.php" method="post" class="signup-form login-form" novalidate="true">
-
-    <p v-if="errors.length" style="color: red;">
-        <b>Please correct the following error(s):</b>
-    <ul>
-        <li v-for="error in errors" style="color: red;">{{ error }}</li>
-    </ul>
-    </p>
-    <div class="form-group">
-        <label class="form-label" id="name" for="name"></label>
-        <input type="text" name="username" id="username" v-model="username" placeholder="Username">
-    </div>
-
-
-    <div class="form-group">
-        <label class="form-label" id="lpassword" for="password"></label>
-        <input type="text" name="password" id="password" v-model="password" placeholder="Password">
-    </div>
+</form>
+<form id="app2" @submit="checkForm" action="login.php" method="post" class="register-form login-form" novalidate="true">
+          
+          <p v-if="errors.length" style="color: red;">
+            <b>Please correct the following error(s):</b>
+            <ul>
+              <li v-for="error in errors" style="color: red;">{{ error }}</li>
+            </ul>
+          </p>
+                                <div class="form-group">
+                                    <label class="form-label" id="name" for="name"></label>
+                                    <input type="text" name="username" id="username" v-model="username" placeholder="Username">
+                                </div>
+        
+        
+                                <div class="form-group">
+                                    <label class="form-label" id="lpassword" for="password"></label>
+                                    <input type="text" name="password" id="password" v-model="password" placeholder="Password">
+                                </div>
+        
+                          
+          <button name="submit" value="submit" id="submit" type="submit" class="btn btn-default btn-gap">SEND</button>
+          
+        
+        </form>
 
     <div class="buttons butsign">
         <a class="mybutton" href="signup.php">Sign up</a>
     </div>
-    
-    <button name="submit" value="submit" id="submit" type="submit" class="btn btn-default btn-gap">SEND</button>
-
-   
-</form>
-
 
 
 

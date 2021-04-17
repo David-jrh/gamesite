@@ -36,7 +36,6 @@
 </head>
 
 <body>
-
 <div class="signup-wrap">
     <h2>Signup a user</h2>
 
@@ -69,9 +68,10 @@
   
 
 </form>
+
                     
 <!--end signup-wrap-->
 </div>
-
+<script src="scripts/vuesignup.js"></script>
 </body>
 </html>
