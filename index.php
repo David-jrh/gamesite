@@ -19,24 +19,28 @@
 <div class="cointainer whitebg">
             <div class="row">
                 <div class="col-sm-6 col-m-12 col-l-12 ">
-                   <center> <img width="500px" src="img/game.jpg" alt="picture of game">  </center> 
+                   <center> <a href="game.php" class="mybutton"><img width="500px" src="img/game.jpg" alt="picture of game"></a>  </center> 
 
                 </div>
                 <div class="col-sm-6 col-m-12 col-l-12 gameplay-text ">
                 <h2>How to play</h2>
         <p>
-        Use the arrow keys to move neo around. Your goal is to collect all the pills before the time runs out and leave the matrix,
-         while mostly avoiding Mr. Anderson you can fight him 2 times before its game over. 
+        Use the arrow keys to move Neo around. Your goal is to collect minimum 10 pills.
+        Progres through the Matrix and meet up with Trinity to leave The Matrix, before the times run out!
+        while mostly avoid fighting agent Smith. You have 60 seconds!  
         </p>
-
+        <a href="game.php" class="mybutton">Play game</a>
 </div>
 
     <div class="cointainer howto-desktop">
             <div class="row wrapit">
                 <div class="col-sm-6 col-m-12 col-l-12 gameplay-text">
                 <h2>Good things to know</h2>
-                <p>You need all the 10 or more Pills,
-                     or else when u try to leave the matrix you will losse even if you lost no health and enter before the time runs out. you have 60 seconds!
+                <p>You need 10 or more Pills, there is more pills then you need to win the game!
+                     or else when u try to leave the matrix you will losse even if you lost no
+                      health and enter before the time runs out. 
+                      <br>Agent Smith will try to block you from reaching the goal, 
+                      since u have 3 health u are able to fight him or his clones max 2 times, be tactical!
                 
         </p>
                    

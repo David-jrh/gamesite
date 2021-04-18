@@ -20,16 +20,6 @@ body {
     color: #d411a4;
     text-decoration: none; }
 
-/*--------profile--------*/
-.profile {
-  background-color: black;
-  padding: 10px; }
-  .profile .row {
-    background-color: rgba(255, 255, 255, 0.288);
-    color: #25a32b; }
-  .profile .profile1 {
-    text-align: center; }
-
 /*--------signup and login form--------*/
 .signup-wrap {
   margin: 0 auto;
@@ -252,7 +242,7 @@ footer {
   .gameplay-text {
     margin-left: 0px; }
     .gameplay-text h2 {
-      padding-top: 3em; }
+      padding-top: 2em; }
 
   .contact .row {
     margin: 4em 0em 4em 0em; }

@@ -22,4 +22,4 @@
     rel="stylesheet">
 
 <link href="style/style.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="images/neo.jpg">
+<link rel="shortcut icon" href="img/neo.jpg">

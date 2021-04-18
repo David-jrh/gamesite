@@ -191,22 +191,22 @@ function walk() {
 }
 //audio collect
 function collect() {
-  let gameSound = new Audio("gamesounds/big shoe.mp3");
+  let gameSound = new Audio("gamesounds/SpaceLaserShot.mp3");
   gameSound.play();
 }
 //audio collect
 function trapsound() {
-  let gameSound = new Audio("gamesounds/pill.mp3");
+  let gameSound = new Audio("gamesounds/MachineGunSnglBur.mp3");
   gameSound.play();
 }
 //audio level up
 function levelUp() {
-  let gameSound = new Audio("gamesounds/pill.mp3");
+  let gameSound = new Audio("gamesounds/ClocksStopwatchTic.mp3");
   gameSound.play();
 }
 
 function Goal() {
-    let gameSound = new Audio("gamesounds/pill.mp3");
+    let gameSound = new Audio("gamesounds/SpaceLaserShot.mp3");
     gameSound.play();
   }
 
@@ -261,7 +261,7 @@ window.addEventListener("keydown", (e) => {
             document.querySelector("#timetext").style.display = 'none';
 
             document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-                "Pokeball(s): " + score;
+                "Pill(s): " + score;
             document.getElementById("gameover").style.backgroundColor = 'black';
             document.getElementById("gameover").style.border = '3px solid blue';
         } else if (targetTile === lvl) {
@@ -300,7 +300,7 @@ window.addEventListener("keydown", (e) => {
             document.querySelector("#timetext").style.display = 'none';
             document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "YOU WON" +
                 '</br>' +
-                "Pokeballs : " + score;
+                "Pills : " + score;
             document.getElementById("gameover").style.backgroundColor = 'black';
             document.getElementById("gameover").style.border = '3px solid blue';
 
@@ -309,7 +309,7 @@ window.addEventListener("keydown", (e) => {
             document.querySelector("#timetext").style.display = 'none';
             document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" +
                 '</br>' +
-                "Pokeballs : " + score
+                "Pills : " + score
             document.getElementById("gameover").style.backgroundColor = 'black';
             document.getElementById("gameover").style.border = '3px solid blue';
         } else if (targetTile === lvl) {
@@ -350,7 +350,7 @@ window.addEventListener("keydown", (e) => {
 
             document.querySelector("#timetext").style.display = 'none';
             document.getElementById("gameover").innerHTML = '</br>' + '</br>' + "GAME OVER" + '</br>' +
-                "Pokeballs : " + score;
+                "Pills : " + score;
             document.getElementById("gameover").style.backgroundColor = 'black';
             document.getElementById("gameover").style.border = '3px solid blue';
         } else if (targetTile === lvl) {
