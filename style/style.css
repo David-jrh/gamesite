@@ -218,9 +218,6 @@ footer {
   .navbar-expand-md .navbar-collapse {
     padding-right: 10%; }
 
-  .howto-mobile {
-    display: none; }
-
   .howto-desktop {
     display: block;
     background-color: #421a3f;

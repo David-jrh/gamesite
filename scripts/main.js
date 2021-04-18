@@ -47,7 +47,7 @@ let finishImg = new Image();
 finishImg.src = 'img/front.png';
 
 /*-----------MAP------------*/
-/*y=20 , x=10 
+/*y=20 , x=12 
 Multidimentionelle array*/
 let levels = [
   [
