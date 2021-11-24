@@ -22,7 +22,6 @@
             session_start();
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
-            $_SESSION['email'] = $email;
             
             //redirect and stop present code
             header('Location: index.php');

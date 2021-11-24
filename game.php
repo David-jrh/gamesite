@@ -11,11 +11,6 @@
 </head>
 
 <body>
-
-    <!-- <audio autoplay="autoplay" loop>
-        <source src="" />
-    </audio> -->
-
     <div class="buttons">
         <a class="mybutton" href="index.php">Back to site</a>
         <a class="mybutton" href="game.php">Start over</a>

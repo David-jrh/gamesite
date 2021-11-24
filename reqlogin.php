@@ -9,6 +9,6 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
     ;
 } else {
     header("location: login.php");
-    echo "Please log in first to see this page.";
+    ;
 }
 ?>

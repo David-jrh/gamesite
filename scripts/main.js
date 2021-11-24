@@ -18,7 +18,7 @@ let ctx = canvas.getContext("2d");
 
 /*-----------IMAGE TILES------------*/
 
-//Characters
+//Character
 let playerImg = new Image();
 playerImg.src = "img/neo.jpg";
 

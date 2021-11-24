@@ -4,7 +4,7 @@ new Vue({
   //#app definere id'et på form
   el: '#app',
   data: {
-      //Data fra v-model
+      //Data fra v-model ( create two-way data bindings on form input)
       //v-for og v-if
       errors: [],
       username: null,
@@ -31,7 +31,7 @@ new Vue({
           if (!this.errors.length) {
               return true;
           }
-
+//stoper click
           event.preventDefault();
       },
       validEmail: function (email) {
